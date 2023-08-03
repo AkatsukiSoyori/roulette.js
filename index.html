@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Roulette Aléatoire</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="spinBtn">SPIN</div>
+        <div class="wheel">
+            <div class="number" style="--i:1;--clr: #db7093;"><span>-10%</span></div>
+            <div class="number" style="--i:2;--clr: #20b2aa;"><span>-30%</span></div>
+            <div class="number" style="--i:3;--clr: #d63e92;"><span>-15%</span></div>
+            <div class="number" style="--i:4;--clr: #daa520;"><span>-50%</span></div>
+            <div class="number" style="--i:5;--clr: #ff340f;"><span>-25%</span></div>
+            <div class="number" style="--i:6;--clr: #ff7f50;"><span>-5%</span></div>
+            <div class="number" style="--i:7;--clr: #3cb371;"><span>-20%</span></div>
+            <div class="number" style="--i:8;--clr: #4169e1;"><span>-35%</span></div>
+        </div>
+    </div>
+    <script>
+        let wheel = document.querySelector('.wheel');
+        let spinBtn = document.querySelector('.spinBtn');
+        let value = Math.ceil(Math.random() * 30000);
+
+        spinBtn.onclick = function(){
+            wheel.style.transform = "rotate(" + value + "deg)";
+            value += Math.ceil(Math.random() * 30000);
+        
+        }
+    </script>
+
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Roulettes Aléatoires</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="roulette-container">
+            <div class="roulette-frame">
+                <div class="wheel" id="roulette1">
+                    <ul class="rouletteList" id="rouletteList1"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="roulette-container">
+            <div class="roulette-frame">
+                <div class="wheel" id="roulette2">
+                    <ul class="rouletteList" id="rouletteList2"></ul>
+                </div>
+                <div class="option-box">
+                    <input type="text" id="inputField" placeholder="Entrez des options pour la roulette 2, séparées par des virgules">
+                    <button onclick="addOptions()">Ajouter des options</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html> -->
+

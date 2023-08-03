@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #333;
+}
+.container
+{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .spinBtn
+{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 0.1em;
+    border: 4px solid rgba(0,0,0,0.75);
+    cursor: pointer;
+    user-select: none;
+}
+.container .spinBtn::before
+{
+    content: '';
+    position: absolute;
+    top: -20px;
+    width: 20px;
+    height: 30px;
+    background: #fff;
+    clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
+}
+.container .wheel
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 0 5px #333, 0 0 0 15px #fff, 0 0 0 18px #111;
+    transition: transform 27s ease-in-out;
+}
+.container .wheel .number
+{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: var(--clr);
+    transform-origin: bottom right;
+    transform: rotate(calc(45deg * var(--i)));
+    clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+}
+.container .wheel .number span
+{
+    position: relative;
+    transform: rotate(45deg);
+    font-size: 2em;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 3px 5px 2px rgba(0,0,0,0.15);
+}
+.container .wheel .number span::after
+{
+    content: ''; /* $ dans le content */
+    position: absolute;
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+
+/*seconde roulette
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #333;
+}
+.container
+{
+    position: relative;
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* Reste du CSS inchangé */
+
+/* .container .roulette-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 20px; /* Nouvelle marge pour séparer les roulettes 
+}
+
+.container .spinBtn
+{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 0.1em;
+    border: 4px solid rgba(0,0,0,0.75);
+    cursor: pointer;
+    user-select: none;
+}
+.container .spinBtn::before
+{
+    content: '';
+    position: absolute;
+    top: -20px;
+    width: 20px;
+    height: 30px;
+    background: #fff;
+    clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
+}
+.container .roulette
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #333;
+    position: relative;
+    box-shadow: 0 0 0 5px #333, 0 0 0 10px #fff, 0 0 0 13px #111;
+    transition: transform 10s ease-in-out;
+}
+.container .roulette ul
+{
+    list-style: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 90%;
+}
+.container .roulette .number
+{
+    width: 40px;
+    height: 40px;
+    background: var(--clr);
+    transform-origin: bottom right;
+    transform: rotate(calc(45deg * var(--i)));
+    clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+}
+.container .roulette .number span
+{
+    position: relative;
+    transform: rotate(45deg);
+    font-size: 2em;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 3px 5px 2px rgba(0,0,0,0.15);
+}
+.container .roulette .number span::after
+{
+    content: '$';
+    position: absolute;
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.separator {
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    margin-bottom: 10px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="text"] {
+    padding: 5px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    width: 250px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.roulette-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.roulette-container {
+    display: flex;
+} */
